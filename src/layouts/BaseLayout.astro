@@ -1,0 +1,21 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import TopNavigation from '../components/TopNavigation.astro'
+
+//const { content } = Astro.props;
+//const { title, description, permalink } = content;
+const { title, description, permalink, lang } = Astro.props;
+---
+
+<html lang={ lang || 'fi' }>
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink} />
+    <link rel="stylesheet" type="text/css" href={Astro.resolve("../styles/global.css")} />
+  </head>
+  <body>
+    <TopNavigation />
+    <div class="wrapper">
+      <slot />
+    </div>
+  </body>
+</html>

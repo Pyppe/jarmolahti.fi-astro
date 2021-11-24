@@ -1,0 +1,15 @@
+---
+const { pathname } = Astro.request.url
+const menuItem = (label: string, url: string, active: boolean) => (
+  `<li role="menuitem">
+    <a href=${url} class="text-xl animate-left py-1 border-b-2 ${active ? 'border-white' : 'border-transparent'}">${label}</a>
+  </li>`
+)
+---
+
+<nav class="bg-blue-500 py-4 px-4">
+  <ul class="flex items-center space-x-8 text-white" role="menubar">
+    {menuItem('Etusivu', '/', pathname === '/')}
+    {menuItem('Blogi', '/blogi', pathname.startsWith('/blogi'))}
+  </ul>
+</nav>
