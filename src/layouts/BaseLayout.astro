@@ -1,6 +1,7 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import TopNavigation from '../components/TopNavigation.astro'
+import BaseHead from '$/components/BaseHead.astro'
+import Container from '$/components/Container.astro'
+import TopNavigation from '$/components/TopNavigation.astro'
 
 //const { content } = Astro.props;
 //const { title, description, permalink } = content;
@@ -14,8 +15,11 @@ const { title, description, permalink, lang } = Astro.props;
   </head>
   <body>
     <TopNavigation />
-    <div class="wrapper">
-      <slot />
-    </div>
+    <div class="HeaderImage" />
+    <Container>
+      <div class="prose prose-blue">
+        <slot />
+      </div>
+    </Container>
   </body>
 </html>

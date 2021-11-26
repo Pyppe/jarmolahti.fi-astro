@@ -1,0 +1,31 @@
+---
+import BaseHead from '$/components/BaseHead.astro'
+import Container from '$/components/Container.astro'
+import TopNavigation from '$/components/TopNavigation.astro'
+
+const { content } = Astro.props;
+const { title, date, description = 'Jarmo Lahti', lang = 'fi' } = content;
+---
+
+<html lang={ lang }>
+  <head>
+    <BaseHead title={title} description={description} permalink={'TODO'} />
+    <link rel="stylesheet" type="text/css" href={Astro.resolve("../styles/global.css")} />
+  </head>
+  <body>
+    <TopNavigation />
+    <div class="HeaderImage">
+      <div>
+        <Container>
+          <h1 class="text-white align-middle text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight TextShadowLarge">{title}</h1>
+        </Container>
+      </div>
+    </div>
+    <Container>
+      <div class="text-gray-500 my-4">{date}</div>
+      <div class="prose prose-blue">
+        <slot />
+      </div>
+    </Container>
+  </body>
+</html>

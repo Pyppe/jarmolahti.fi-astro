@@ -1,5 +1,5 @@
 ---
-import { determineSlug } from '$/utils.ts'
+//import { determineSlug } from '$/utils.ts'
 import BaseLayout from '$/layouts/BaseLayout.astro'
 
 interface MarkdownFrontmatter {
@@ -12,10 +12,8 @@ const permalink = 'https://www.jarmolahti.fi/';
 
 // Data Fetching: List all Markdown posts in the repo.
 
-let allPosts = await Astro.fetchContent('./posts/*.md');
-allPosts = allPosts.sort((a, b) => b.date - a.date);
-
-console.log(allPosts[0])
+let allPosts = await Astro.fetchContent('./blogi/*.md');
+allPosts = allPosts.sort((a, b) => b.date - a.date).reverse();
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -34,7 +32,7 @@ console.log(allPosts[0])
         <article class="prose">
           <header>
             <!--<p>{post.date}</p>-->
-            <a href={`/blogi/${determineSlug(post.file.pathname)}`}>{post.title}</a>
+            <a href={post.url}>{post.title}</a>
           </header>
         </article>
       )

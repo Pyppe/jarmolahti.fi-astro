@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.HeaderImage {
+  background-image: url('/blog_bg.jpg');
+  background-position: center 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  overflow: hidden;
+  position: relative;
+  height: 300px;
+}
+
+.HeaderImage > div {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+}
+
+.TextShadowLarge {
+  text-shadow: 0 0 6px #000;
+}
